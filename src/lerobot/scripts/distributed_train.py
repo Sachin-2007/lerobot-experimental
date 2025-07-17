@@ -28,21 +28,21 @@ from accelerate.utils import set_seed as accelerate_set_seed
 from termcolor import colored
 from torch.optim import Optimizer
 
-from lerobot.common.datasets.factory import make_dataset
-from lerobot.common.datasets.sampler import EpisodeAwareSampler
-from lerobot.common.envs.factory import make_env
-from lerobot.common.optim.factory import make_optimizer_and_scheduler
-from lerobot.common.policies.factory import make_policy
-from lerobot.common.policies.pretrained import PreTrainedPolicy
-from lerobot.common.utils.logging_utils import AverageMeter, MetricsTracker
-from lerobot.common.utils.train_utils import (
+from lerobot.datasets.factory import make_dataset
+from lerobot.datasets.sampler import EpisodeAwareSampler
+from lerobot.envs.factory import make_env
+from lerobot.optim.factory import make_optimizer_and_scheduler
+from lerobot.policies.factory import make_policy
+from lerobot.policies.pretrained import PreTrainedPolicy
+from lerobot.utils.logging_utils import AverageMeter, MetricsTracker
+from lerobot.utils.train_utils import (
     get_step_checkpoint_dir,
     get_step_identifier,
     load_training_state,
     save_checkpoint,
     update_last_checkpoint,
 )
-from lerobot.common.utils.utils import (
+from lerobot.utils.utils import (
     format_big_number,
     has_method,
     init_logging,
