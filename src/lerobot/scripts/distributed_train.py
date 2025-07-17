@@ -17,6 +17,9 @@
 import sys
 sys.path.insert(0, "/kaggle/working/myenv/lib/python3.11/site-packages")
 
+import numpy
+print("NUMPY:", numpy.__version__)
+
 import logging
 import time
 from pprint import pformat
@@ -105,7 +108,7 @@ def train(cfg: TrainPipelineConfig):
     # Initialize accelerator
     from accelerate.utils import DistributedDataParallelKwargs
 
-    from lerobot.common.utils.wandb_utils import cfg_to_group, get_wandb_run_id_from_filesystem
+    from lerobot.utils.wandb_utils import cfg_to_group, get_wandb_run_id_from_filesystem
 
     ddp_kwargs = DistributedDataParallelKwargs(find_unused_parameters=True)
     accelerator = Accelerator(

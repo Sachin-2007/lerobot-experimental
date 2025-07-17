@@ -1,0 +1,215 @@
+
+Generating train split: 22956 examples [00:00, 272922.05 examples/s]
+INFO 2025-07-17 07:50:40 ed_train.py:162 Creating policy
+2025-07-17 07:50:44.374327: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1752738644.579000     295 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1752738644.641319     295 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+DEBUG:2025-07-17 07:50:52,162:jax._src.path:31: etils.epath found. Using etils.epath for file I/O.
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/kaggle/working/lerobot-experimental/src/lerobot/scripts/distributed_train.py", line 359, in <module>
+    train()
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/configs/parser.py", line 226, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/kaggle/working/lerobot-experimental/src/lerobot/scripts/distributed_train.py", line 166, in train
+    policy = make_policy(
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/policies/factory.py", line 145, in make_policy
+    policy_cls = get_policy_class(cfg.type)
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/policies/factory.py", line 74, in get_policy_class
+    from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/policies/smolvla/modeling_smolvla.py", line 64, in <module>
+    from transformers import AutoProcessor
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/import_utils.py", line 2045, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/import_utils.py", line 2073, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/usr/local/lib/python3.11/dist-packages/transformers/models/auto/processing_auto.py", line 28, in <module>
+    from ...image_processing_utils import ImageProcessingMixin
+  File "/usr/local/lib/python3.11/dist-packages/transformers/image_processing_utils.py", line 22, in <module>
+    from .image_transforms import center_crop, normalize, rescale
+  File "/usr/local/lib/python3.11/dist-packages/transformers/image_transforms.py", line 47, in <module>
+    import tensorflow as tf
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/wandb/sdk/lib/import_hooks.py", line 182, in _exec_module
+    self.loader.exec_module(module)
+  File "/usr/local/lib/python3.11/dist-packages/tensorflow/__init__.py", line 467, in <module>
+    importlib.import_module("keras.src.optimizers")
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/wandb/sdk/lib/import_hooks.py", line 182, in _exec_module
+    self.loader.exec_module(module)
+  File "/usr/local/lib/python3.11/dist-packages/keras/__init__.py", line 2, in <module>
+    from keras.api import DTypePolicy
+  File "/usr/local/lib/python3.11/dist-packages/keras/api/__init__.py", line 8, in <module>
+    from keras.api import activations
+  File "/usr/local/lib/python3.11/dist-packages/keras/api/activations/__init__.py", line 7, in <module>
+    from keras.src.activations import deserialize
+  File "/usr/local/lib/python3.11/dist-packages/keras/src/__init__.py", line 13, in <module>
+    from keras.src import visualization
+  File "/usr/local/lib/python3.11/dist-packages/keras/src/visualization/__init__.py", line 2, in <module>
+    from keras.src.visualization import plot_image_gallery
+  File "/usr/local/lib/python3.11/dist-packages/keras/src/visualization/plot_image_gallery.py", line 13, in <module>
+    import matplotlib.pyplot as plt
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/__init__.py", line 129, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/rcsetup.py", line 27, in <module>
+    from matplotlib.colors import Colormap, is_color_like
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/colors.py", line 56, in <module>
+    from matplotlib import _api, _cm, cbook, scale
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/scale.py", line 22, in <module>
+    from matplotlib.ticker import (
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/ticker.py", line 138, in <module>
+    from matplotlib import transforms as mtransforms
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/transforms.py", line 49, in <module>
+    from matplotlib._path import (
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/kaggle/working/lerobot-experimental/src/lerobot/scripts/distributed_train.py", line 359, in <module>
+    train()
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/configs/parser.py", line 226, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/kaggle/working/lerobot-experimental/src/lerobot/scripts/distributed_train.py", line 166, in train
+    policy = make_policy(
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/policies/factory.py", line 145, in make_policy
+    policy_cls = get_policy_class(cfg.type)
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/policies/factory.py", line 74, in get_policy_class
+    from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/policies/smolvla/modeling_smolvla.py", line 64, in <module>
+    from transformers import AutoProcessor
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/import_utils.py", line 2045, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/import_utils.py", line 2073, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/usr/local/lib/python3.11/dist-packages/transformers/models/auto/processing_auto.py", line 28, in <module>
+    from ...image_processing_utils import ImageProcessingMixin
+  File "/usr/local/lib/python3.11/dist-packages/transformers/image_processing_utils.py", line 22, in <module>
+    from .image_transforms import center_crop, normalize, rescale
+  File "/usr/local/lib/python3.11/dist-packages/transformers/image_transforms.py", line 47, in <module>
+    import tensorflow as tf
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/wandb/sdk/lib/import_hooks.py", line 182, in _exec_module
+    self.loader.exec_module(module)
+  File "/usr/local/lib/python3.11/dist-packages/tensorflow/__init__.py", line 467, in <module>
+    importlib.import_module("keras.src.optimizers")
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/wandb/sdk/lib/import_hooks.py", line 182, in _exec_module
+    self.loader.exec_module(module)
+  File "/usr/local/lib/python3.11/dist-packages/keras/__init__.py", line 2, in <module>
+    from keras.api import DTypePolicy
+  File "/usr/local/lib/python3.11/dist-packages/keras/api/__init__.py", line 34, in <module>
+    from keras.api import visualization
+  File "/usr/local/lib/python3.11/dist-packages/keras/api/visualization/__init__.py", line 11, in <module>
+    from keras.src.visualization.plot_bounding_box_gallery import (
+  File "/usr/local/lib/python3.11/dist-packages/keras/src/visualization/plot_bounding_box_gallery.py", line 12, in <module>
+    from matplotlib import patches  # For legend patches
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/__init__.py", line 129, in <module>
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/rcsetup.py", line 27, in <module>
+    from matplotlib.colors import Colormap, is_color_like
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/colors.py", line 56, in <module>
+    from matplotlib import _api, _cm, cbook, scale
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/scale.py", line 22, in <module>
+    from matplotlib.ticker import (
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/ticker.py", line 138, in <module>
+    from matplotlib import transforms as mtransforms
+  File "/usr/local/lib/python3.11/dist-packages/matplotlib/transforms.py", line 49, in <module>
+    from matplotlib._path import (
+AttributeError: _ARRAY_API not found
+Traceback (most recent call last):
+  File "/kaggle/working/lerobot-experimental/src/lerobot/scripts/distributed_train.py", line 359, in <module>
+    train()
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/configs/parser.py", line 226, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/lerobot-experimental/src/lerobot/scripts/distributed_train.py", line 166, in train
+    policy = make_policy(
+             ^^^^^^^^^^^^
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/policies/factory.py", line 145, in make_policy
+    policy_cls = get_policy_class(cfg.type)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/policies/factory.py", line 74, in get_policy_class
+    from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/lerobot/policies/smolvla/modeling_smolvla.py", line 64, in <module>
+    from transformers import AutoProcessor
+  File "<frozen importlib._bootstrap>", line 1229, in _handle_fromlist
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/import_utils.py", line 2045, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/import_utils.py", line 2075, in _get_module
+    raise e
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/import_utils.py", line 2073, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/models/auto/processing_auto.py", line 28, in <module>
+    from ...image_processing_utils import ImageProcessingMixin
+  File "/usr/local/lib/python3.11/dist-packages/transformers/image_processing_utils.py", line 22, in <module>
+    from .image_transforms import center_crop, normalize, rescale
+  File "/usr/local/lib/python3.11/dist-packages/transformers/image_transforms.py", line 47, in <module>
+    import tensorflow as tf
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/wandb/sdk/lib/import_hooks.py", line 182, in _exec_module
+    self.loader.exec_module(module)
+  File "/usr/local/lib/python3.11/dist-packages/tensorflow/__init__.py", line 467, in <module>
+    importlib.import_module("keras.src.optimizers")
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/wandb/sdk/lib/import_hooks.py", line 182, in _exec_module
+    self.loader.exec_module(module)
+  File "/usr/local/lib/python3.11/dist-packages/keras/__init__.py", line 2, in <module>
+    from keras.api import DTypePolicy
+  File "/usr/local/lib/python3.11/dist-packages/keras/api/__init__.py", line 35, in <module>
+    from keras.api import wrappers
+  File "/usr/local/lib/python3.11/dist-packages/keras/api/wrappers/__init__.py", line 7, in <module>
+    from keras.src.wrappers.sklearn_wrapper import SKLearnClassifier
+  File "/usr/local/lib/python3.11/dist-packages/keras/src/wrappers/__init__.py", line 1, in <module>
+    from keras.src.wrappers.sklearn_wrapper import SKLearnClassifier
+  File "/usr/local/lib/python3.11/dist-packages/keras/src/wrappers/sklearn_wrapper.py", line 8, in <module>
+    from keras.src.wrappers.fixes import _routing_enabled
+  File "/usr/local/lib/python3.11/dist-packages/keras/src/wrappers/fixes.py", line 2, in <module>
+    import sklearn
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "/kaggle/working/myenv/lib/python3.11/site-packages/wandb/sdk/lib/import_hooks.py", line 182, in _exec_module
+    self.loader.exec_module(module)
+  File "/usr/local/lib/python3.11/dist-packages/sklearn/__init__.py", line 82, in <module>
+    from .base import clone
+  File "/usr/local/lib/python3.11/dist-packages/sklearn/base.py", line 17, in <module>
+    from .utils import _IS_32BIT
+  File "/usr/local/lib/python3.11/dist-packages/sklearn/utils/__init__.py", line 19, in <module>
+    from .murmurhash import murmurhash3_32
+  File "sklearn/utils/murmurhash.pyx", line 1, in init sklearn.utils.murmurhash
+ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+wandb: 
+wandb: 🚀 View run smolvla_dist_train at: https://wandb.ai/raspberryvitriol-iit-madras/lerobot/runs/8wx5r4t7
