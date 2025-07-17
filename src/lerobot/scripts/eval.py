@@ -13,6 +13,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+import sys
+sys.path.insert(0, "/kaggle/working/myenv/lib/python3.11/site-packages")
+
 """Evaluate a policy on an environment by running rollouts and computing metrics.
 
 Usage examples:

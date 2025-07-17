@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import sys
+sys.path.insert(0, "/kaggle/working/myenv/lib/python3.11/site-packages")
+
 """Use this script to get a quick summary of your system config.
 It should be able to run without any of LeRobot's dependencies or LeRobot itself installed.
 """
