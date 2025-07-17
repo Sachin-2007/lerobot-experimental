@@ -295,11 +295,7 @@ def train(cfg: TrainPipelineConfig):
 
             # Wait for all processes before saving
             accelerator.wait_for_everyone()
-
-            # Unwrap model for saving
-            unwrapped_policy = accelerator.unwrap_model(policy)
-            save_checkpoint(checkpoint_dir, step, cfg, unwrapped_policy, optimizer, lr_scheduler)
-            update_last_checkpoint(checkpoint_dir)
+            accelerator.save_model(model, save_directory)
             # if wandb_logger:
             #     wandb_logger.log_policy(checkpoint_dir)
 

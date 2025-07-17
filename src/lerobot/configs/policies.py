@@ -62,6 +62,9 @@ class PreTrainedConfig(draccus.ChoiceRegistry, HubMixin, abc.ABC):
     # automatic gradient scaling is used.
     use_amp: bool = False
 
+    # added by Sachin-2007
+    gradient_accumulation_steps: int = 1
+
     push_to_hub: bool = True
     repo_id: str | None = None
 
