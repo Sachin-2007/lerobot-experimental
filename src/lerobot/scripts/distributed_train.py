@@ -53,6 +53,31 @@ from lerobot.utils.utils import (
 from lerobot.configs import parser
 from lerobot.configs.train import TrainPipelineConfig
 from lerobot.scripts.eval import eval_policy
+import os
+
+# --- Programmatically ensure accelerate config uses GPU ---
+ACCELERATE_CONFIG_DIR = os.path.expanduser("~/.cache/huggingface/accelerate")
+os.makedirs(ACCELERATE_CONFIG_DIR, exist_ok=True)
+ACCELERATE_CONFIG_PATH = os.path.join(ACCELERATE_CONFIG_DIR, "default_config.yaml")
+
+ACCELERATE_CONFIG_CONTENT = """
+compute_environment: LOCAL_MACHINE
+deepspeed_config: {}
+distributed_type: NO
+downcast_bf16: 'no'
+fsdp_config: {}
+machine_rank: 0
+main_training_function: main
+mixed_precision: fp16
+num_machines: 1
+num_processes: 1
+use_cpu: false
+gpu_ids: 0
+"""
+
+if not os.path.exists(ACCELERATE_CONFIG_PATH):
+    with open(ACCELERATE_CONFIG_PATH, "w") as f:
+        f.write(ACCELERATE_CONFIG_CONTENT)
 
 
 def update_policy(
@@ -192,13 +217,16 @@ def train(cfg: TrainPipelineConfig):
         shuffle = True
         sampler = None
 
+    # Set pin_memory based on CUDA availability
+    pin_memory = torch.cuda.is_available()
+
     dataloader = torch.utils.data.DataLoader(
         dataset,
         num_workers=cfg.num_workers,
         batch_size=cfg.batch_size,
         shuffle=shuffle,
         sampler=sampler,
-        pin_memory=True,
+        pin_memory=pin_memory,
         drop_last=True,  # Important for distributed training
     )
 
